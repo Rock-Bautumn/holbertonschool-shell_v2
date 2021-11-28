@@ -1,0 +1,6 @@
+# ignore any test files
+
+*test*
+a.out
+*.c~
+*.example

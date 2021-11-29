@@ -1,28 +1,31 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 char *_getenv(char *str)
 {
-	extern char **environ;
-	int i = 0;
-	char *thisenv;
-	char *copyenv;
-	char *retval;
+    extern char **environ;
+    int i = 0;
+    int j = 0;
+    char *retval;
+    char copyenv[PATH_MAX];
 
-	while (environ[i])
-	{
-		copyenv = strdup(environ[i]);
-		thisenv = strtok(environ[i], "=");
+    while (environ[i])
+    {
+        j = 0;
+        strcpy(copyenv, environ[i]);
+        while (copyenv[j] != '\0' && copyenv[j] != '=')
+        {
+            j++;
+        }
+        copyenv[j] = '\0';
+        j++;
+        if (strcmp(copyenv, str) == 0)
+        {
+            retval = &environ[i][j];
+            return (retval);
+        }
+        i++;
+    }
+    printf("ERROR: i = %d\n", i);
+    return ("ERROR");
 
-		if (strcmp(thisenv, str) == 0)
-		{
-			retval = strdup(strtok(copyenv, "="));
-			retval = strtok(NULL, "=");
-			return (retval);
-		}
-		i++;
-	}
-	printf("ERROR:\ni = %d - copyenv = %s", i, copyenv);
-	return ("ERROR");
 }

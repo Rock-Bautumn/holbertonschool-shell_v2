@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char *_pathcat(char *desty, char *src)
+char *path_cat(char *desty, char *src)
 {
   int goback = 0;
   int limit = 0;

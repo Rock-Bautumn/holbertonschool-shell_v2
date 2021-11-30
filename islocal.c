@@ -1,11 +1,16 @@
-#include <stdlib.h>
+#include "main.h"
 
-char * islocal(char *string)
+char *islocal(char *string)
 {
-	if (string[0] == '.' && string[1] == '/' && string[2] != NULL)
-	{
-		return ((string + 2));
-	}
+	struct stat st;
 
+	if (stat(&string, &st, NULL) == 0)
+	{
+		return (string);
+	}
 	return (NULL);
 }
+
+int main()
+{
+	char* string = "./a.out";

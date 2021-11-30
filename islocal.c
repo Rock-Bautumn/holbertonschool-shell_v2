@@ -10,7 +10,3 @@ char *islocal(char *string)
 	}
 	return (NULL);
 }
-
-int main()
-{
-	char* string = "./a.out";

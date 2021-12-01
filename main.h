@@ -13,16 +13,14 @@
 #include <limits.h>
 
 unsigned long int loopcount = 0;
+enum errornum{no_error, no_access, not_found, no_exist};
 
 int space_count(char *str, char *delimiter);
-
 char **splitter(char fun[]);
 char *_getenv(char *str);
 char *path_cat(char *desty, char *src);
 void spawn_process(char *pathandprogram, char **argv);
 char *_itoa(unsigned long int value, char *newString);
-enum errornum{no_error, no_access, not_found};
-void _puts(char *str);
 int _putchar(char c);
 
 #endif /* MAIN_H */

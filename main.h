@@ -10,8 +10,9 @@
 #include <sys/wait.h>
 #include <stddef.h>
 #include <sys/stat.h>
+#include <limits.h>
 
-int loopcount = 0;
+unsigned long int loopcount = 0;
 
 int space_count(char *str, char *delimiter);
 
@@ -19,7 +20,10 @@ char **splitter(char fun[]);
 char *_getenv(char *str);
 char *path_cat(char *desty, char *src);
 void spawn_process(char *pathandprogram, char **argv);
-
+char *_itoa(unsigned long int value, char *newString);
+enum errornum{no_error, no_access, not_found};
+void _puts(char *str);
+int _putchar(char c);
 
 #endif /* MAIN_H */
 
@@ -31,4 +35,3 @@ void spawn_process(char *pathandprogram, char **argv);
 #ifndef NAME_MAX
 #define NAME_MAX = 1024
 #endif /* NAME_MAX */
-

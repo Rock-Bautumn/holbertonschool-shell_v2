@@ -1,12 +1,6 @@
 #include "main.h"
 
-void shell_error(int errorno)
+void shell_error(int errorno, char *command)
 {
-	switch (errorno)
-	{
-	case 1:
-		
-	case 2:
-
-	case 3:
+        perror(string_builder(errorno, command));
 }

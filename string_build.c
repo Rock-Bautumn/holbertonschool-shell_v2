@@ -51,32 +51,41 @@ char *string_build(char *command, int errorno)
 	char this_shell[] = "hsh: ";
 	char notfound[] = "not found";
 	char noaccess[] = "Permission denied";
-	char *colon = ": ";
+	char cantopen[] = "Can't open ";
 	char itoahold[12];
 	char catholder[PATH_MAX];
+	char *colon = ": ";
 	char *errptr;
 
+	if (loopcount == 0)
+		strcpy(itoahold, "0");
+	else
+		strcpy(itoahold, _itoa(loopcount, itoahold));
 
-	strcpy(itoahold, _itoa(1, itoahold));
-
-	strcpy(itoahold, _strcat(itoahold, colon));
-	strcpy(catholder, _strcat(this_shell, itoahold));
-
-	strcpy(command, _strcat(command, colon));
-	strcpy(catholder, _strcat(catholder, command));
-
-	switch (errorno)
+	if (errorno < cant_open)
 	{
-	case no_access :
-		errptr = noaccess;
-		break;
-	case not_found :
-		errptr = notfound;
-		break;
+		strcpy(itoahold, _strcat(itoahold, colon));
+		strcpy(catholder, _strcat(this_shell, itoahold));
+		strcpy(command, _strcat(command, colon));
+		strcpy(catholder, _strcat(catholder, command));
+		switch (errorno)
+		{
+		case no_access :
+			errptr = noaccess;
+			break;
+		case not_found :
+			errptr = notfound;
+			break;
+		}
+		strcpy(catholder, _strcat(catholder, errptr));
 	}
-
-	strcpy(catholder, _strcat(catholder, errptr));
-
+	else if (errorno == cant_open)
+	{
+		strcpy(catholder, _strcat(this_shell, itoahold));
+		strcpy(catholder, _strcat(catholder, colon));
+		strcpy(catholder, _strcat(catholder, cantopen));
+		strcpy(catholder, _strcat(catholder, command));
+	}
 	errptr = catholder;
 	return (errptr);
 }

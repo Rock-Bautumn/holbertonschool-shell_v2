@@ -15,8 +15,6 @@ int main(int ac, char **av)
 	{
 		prompt();
 		argv = splitter(get_input(), " ");
-		printf("argv0 is %s\n", argv[0]);
-		printf("argtocom is %s\n", argtocom(argv[0]));
 		is_program(argv);
 		free(argv);
 	}

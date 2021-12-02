@@ -7,7 +7,8 @@ void shell_env()
 
 	while (environ[i])
 	{
-		printf("%s\n", environ[i]);
+		_puts(environ[i]);
+		_puts("\n");
 		i++;
 	}
 }

@@ -25,7 +25,6 @@ char *_getenv(char *str)
         }
         i++;
     }
-    printf("ERROR: i = %d\n", i);
-    return ("ERROR");
+    return (NULL);
 
 }

@@ -10,6 +10,7 @@ int is_builtin (char **argv)
 	}
         if (strcmp(argv[0], "env") == 0)
 	{
+		printf("Matched env!\n");
                 shell_env();
 		return (1);
 	}

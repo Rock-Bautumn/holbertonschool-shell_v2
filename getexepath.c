@@ -12,7 +12,7 @@ char *argtocom(char *arg)
 		if (stat(path_cat(possiblepaths[i], arg), &st) == 0)
 		{
 			pathptr = strdup(path_cat(possiblepaths[i], arg));
-			free(possiblepaths);
+			free_list(possiblepaths);
 			return (pathptr);
 		}
 		i++;

@@ -5,6 +5,9 @@ unsigned long int loopcount = 0;
 int main(int ac, char **av)
 {
 	char **argv = NULL;
+	char *input;
+
+
 	(void) ac;
 	(void) av;
 
@@ -14,8 +17,10 @@ int main(int ac, char **av)
 	while (1)
 	{
 		prompt();
-		argv = splitter(get_input(), " ");
+		input = get_input();
+		argv = splitter(input, " ");
 		is_program(argv);
 		free(argv);
+		free(input);
 	}
 }

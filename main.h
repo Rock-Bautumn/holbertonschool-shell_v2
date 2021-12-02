@@ -36,6 +36,9 @@ void prompt(void);
 char *get_input(void);
 void is_program(char **argv);
 char **ndsplitter(char fun[], char *delimiter);
+void free_list(char **list);
+
+
 
 #endif /* MAIN_H */
 

@@ -10,11 +10,10 @@ char *path_cat(char *desty, char *src)
   char *retval;
 
   char dest[PATH_MAX];
-  
-  
+
+
     while (*(desty + limit) != '\0')
     {
-      printf("desty limit = %c\n", *(desty + limit));
       dest[limit] = *(desty + limit);
         limit++;
         goback++;
@@ -32,8 +31,6 @@ char *path_cat(char *desty, char *src)
         goback++;
     }
     dest[goback] = '\0';
-    printf("strcat made %s\n", dest);
     retval = dest;
     return (retval);
 }
-

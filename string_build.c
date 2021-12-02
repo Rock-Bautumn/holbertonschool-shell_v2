@@ -1,4 +1,5 @@
 #include "main.h"
+unsigned long int loopcount;
 
 char *_itoa(unsigned long int value, char *newString)
 {
@@ -48,42 +49,29 @@ char *_strcat(char *desty, char *src)
 
 char *string_build(char *command, int errorno)
 {
-	char this_shell[] = "hsh: ";
-	char notfound[] = "not found";
-	char noaccess[] = "Permission denied";
-	char cantopen[] = "Can't open ";
+	char this_shell[] = "hsh: \0";
 	char itoahold[12];
 	char catholder[PATH_MAX];
 	char *colon = ": ";
 	char *errptr;
+	extern unsigned long int loopcount;
 
 	if (loopcount == 0)
 		strcpy(itoahold, "0");
 	else
 		strcpy(itoahold, _itoa(loopcount, itoahold));
 
-	if (errorno < cant_open)
+	if (errorno == no_access || errorno == not_found)
 	{
 		strcpy(itoahold, _strcat(itoahold, colon));
 		strcpy(catholder, _strcat(this_shell, itoahold));
-		strcpy(command, _strcat(command, colon));
 		strcpy(catholder, _strcat(catholder, command));
-		switch (errorno)
-		{
-		case no_access :
-			errptr = noaccess;
-			break;
-		case not_found :
-			errptr = notfound;
-			break;
-		}
-		strcpy(catholder, _strcat(catholder, errptr));
 	}
 	else if (errorno == cant_open)
 	{
 		strcpy(catholder, _strcat(this_shell, itoahold));
 		strcpy(catholder, _strcat(catholder, colon));
-		strcpy(catholder, _strcat(catholder, cantopen));
+		strcpy(catholder, _strcat(catholder, "Can't open "));
 		strcpy(catholder, _strcat(catholder, command));
 	}
 	errptr = catholder;

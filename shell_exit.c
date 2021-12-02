@@ -1,5 +1,7 @@
-void shell_exit(char* str);
+#include "main.h"
+
+void shell_exit(char** argv)
 {
-	free(str);
+	free(argv);
 	exit(0);
 }

@@ -6,10 +6,10 @@ int space_count(char *str, char *delimiter)
   int count = 1;
   int gotspace = 1;
   char delim = delimiter[0];
-  
+
   if (str[i] == '\0' || str == NULL)
   return (0);
-  
+
   while (str[i] != '\0')
   {
     if (str[i] == delim)
@@ -31,7 +31,7 @@ int space_count(char *str, char *delimiter)
 char ** splitter(char *fun, char *delimiter)
 {
         char **holder;
-        int i = 0; //
+        int i = 0;
         long int length = space_count(fun, delimiter);
         char *temp;
 

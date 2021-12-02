@@ -1,3 +1,5 @@
+#include "main.h"
+
 void shell_env()
 {
 	extern char **environ;

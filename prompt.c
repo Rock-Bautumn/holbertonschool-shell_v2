@@ -2,6 +2,8 @@
 
 void prompt()
 {
+	extern unsigned long int loopcount;
+	
 	loopcount++;
-	printf("$ ");
+	_puts("$ ");
 }

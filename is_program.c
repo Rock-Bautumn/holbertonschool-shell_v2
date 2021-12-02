@@ -3,7 +3,6 @@
 void is_program (char **argv)
 {
 	char newline[2] = {'\n', '\0'};
-	
 	char *path = strtok(argv[0], newline);
 
 	printf("the path is %s\n", argv[0]);

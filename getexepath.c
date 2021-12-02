@@ -2,7 +2,7 @@
 
 char *argtocom(char *arg)
 {
-	char **possiblepaths = splitter(_getenv("PATH"), ":");
+	char **possiblepaths = ndsplitter(_getenv("PATH"), ":");
 	int i = 0;
 	struct stat st;
 	char *pathptr;

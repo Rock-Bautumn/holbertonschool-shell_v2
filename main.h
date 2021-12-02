@@ -25,13 +25,17 @@ char *string_build(char *command, int errorno);
 char *expand_home(char *string);
 char *islocal(char *string);
 int checkforslash(char *command);
-void shell_env();
+void shell_env(void);
 void shell_exit(char** argv);
 void shell_error(int errorno, char *command);
 int is_builtin (char **argv);
 void check_access(char *exepath, char **argv);
 char *argtocom(char *arg);
 void _puts(char *str);
+void prompt(void);
+char *get_input(void);
+void is_program(char **argv);
+
 
 #endif /* MAIN_H */
 

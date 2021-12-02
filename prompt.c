@@ -1,6 +1,6 @@
 #include "main.h"
 
-void prompt()
+void prompt(void)
 {
 	extern unsigned long int loopcount;
 	

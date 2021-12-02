@@ -26,15 +26,15 @@ char *expand_home(char *string);
 char *islocal(char *string);
 int checkforslash(char *command);
 void shell_env(void);
-void shell_exit(char** argv);
+void shell_exit(char **argv,char *originalinput);
 void shell_error(int errorno, char *command);
-int is_builtin (char **argv);
+int is_builtin (char **argv, char *originalinput);
 void check_access(char *exepath, char **argv);
 char *argtocom(char *arg);
 void _puts(char *str);
 void prompt(void);
 char *get_input(void);
-void is_program(char **argv);
+void is_program(char **argv, char *originalinput);
 char **ndsplitter(char fun[], char *delimiter);
 void free_list(char **list);
 

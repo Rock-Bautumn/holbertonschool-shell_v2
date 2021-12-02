@@ -1,13 +1,13 @@
 #include "main.h"
 
-void is_program (char **argv)
+void is_program (char **argv, char *originalinput)
 {
 	char newline[2] = {'\n', '\0'};
 	char *path = strtok(argv[0], newline);
 	char *localpath;
 	char *argpath;
 	
-	if (is_builtin(argv) == 1)
+	if (is_builtin(argv, originalinput) == 1)
 		;
 	else if ((localpath = islocal(path)))
 		check_access(localpath, argv);

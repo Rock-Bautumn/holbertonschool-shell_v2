@@ -19,8 +19,9 @@ int main(int ac, char **av)
 		prompt();
 		input = get_input();
 		argv = splitter(input, " ");
-		is_program(argv);
+		is_program(argv, input);
 		free(argv);
 		free(input);
+		fflush(NULL);
 	}
 }

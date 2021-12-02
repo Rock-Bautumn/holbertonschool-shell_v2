@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	if (ac > 1)
 		shell_error(cant_open, av[1]);
 
-	while (1)
+	do
 	{
 		prompt();
 		input = get_input();
@@ -23,5 +23,7 @@ int main(int ac, char **av)
 		free(argv);
 		free(input);
 		fflush(NULL);
-	}
+	} while (isatty(STDIN_FILENO) == 1);
+	
+	return (0);
 }

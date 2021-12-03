@@ -3,18 +3,22 @@
 char *islocal(char *string)
 {
 	struct stat st;
-	char buffer[PATH_MAX];
-	char *bufptr;
+	char *bufptr = malloc(sizeof(char) * PATH_MAX);
+	char *homestr = NULL;
 
 	if (checkforslash(string) == 0)
-		return (NULL);
-	strcpy(buffer, expand_home(string));
-
-	if (stat(buffer, &st) == 0)
 	{
-		bufptr = buffer;
+		free(bufptr);
+		return (NULL);
+	}
+	homestr = expand_home(string);
+	strcpy(bufptr, homestr);
+	free(homestr);
+
+	if (stat(bufptr, &st) == 0)
+	{
 		return (bufptr);
 	}
-
+	free(bufptr);
 	return (NULL);
 }

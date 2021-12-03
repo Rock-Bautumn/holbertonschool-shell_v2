@@ -3,9 +3,9 @@
 char *expand_home(char *string)
 {
 	int i = 0;
-	char buffer[PATH_MAX];
+	char *buffer = malloc(sizeof(char) * PATH_MAX);
 	int offset = 0;
-	char *bufptr;
+
 
 	if (string[0] == '~')
 	{
@@ -22,6 +22,5 @@ char *expand_home(char *string)
 		i++;
 	}
 	buffer[i + offset] = '\0';
-	bufptr = buffer;
-	return (bufptr);
+	return (buffer);
 }

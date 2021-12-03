@@ -31,6 +31,7 @@ char *path_cat(char *desty, char *src)
         goback++;
     }
     dest[goback] = '\0';
-    retval = dest;
+    retval = strdup(dest);
+    printf("path_cat strdup has address %p\n", retval);
     return (retval);
 }

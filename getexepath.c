@@ -5,16 +5,18 @@ char *argtocom(char *arg)
 	char **possiblepaths = ndsplitter(_getenv("PATH"), ":");
 	int i = 0;
 	struct stat st;
-	char *pathptr;
+	char *thispath;
 
 	while (possiblepaths[i] != NULL)
 	{
-		if (stat(path_cat(possiblepaths[i], arg), &st) == 0)
+		thispath = path_cat(possiblepaths[i], arg);
+
+		if (stat(thispath, &st) == 0)
 		{
-			pathptr = strdup(path_cat(possiblepaths[i], arg));
 			free_list(possiblepaths);
-			return (pathptr);
+			return (thispath);
 		}
+		free(thispath);
 		i++;
 	}
 

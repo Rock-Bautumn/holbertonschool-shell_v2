@@ -16,6 +16,7 @@ void is_program (char **argv, char *originalinput)
 	else if((argpath = argtocom(path)))
 	{
         	check_access(argpath, argv);
+		printf("going to free address %p\n", argpath);
 		free(argpath);
 	}
 	else

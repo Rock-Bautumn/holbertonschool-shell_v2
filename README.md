@@ -15,7 +15,9 @@
 
 **Autumn Corona**
 
-- [Profile](https://github.com/rohit19060 "Autumn Corona")
+- [Profile](https://github.com/Rock-Bautumn "Autumn Corona")
 
 ## Usage Example
+./hsh
 
+-You now have control of simple shell and can input commands for execution.

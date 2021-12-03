@@ -4,8 +4,6 @@ unsigned long int loopcount = 0;
 
 int main(int ac, char **av)
 {
-	char **argv = NULL;
-	char *input;
 
 
 	(void) ac;
@@ -14,16 +12,16 @@ int main(int ac, char **av)
 	if (ac > 1)
 		shell_error(cant_open, av[1]);
 
-	do
+/* interactive mode */
+	if (isatty(STDIN_FILENO) == 1)
 	{
-		prompt();
-		input = get_input();
-		argv = splitter(input, " ");
-		is_program(argv, input);
-		free(argv);
-		free(input);
-		fflush(NULL);
-	} while (isatty(STDIN_FILENO) == 1);
-	
+		ttymode();
+	}
+	/* non-interactive mode */
+	else
+	{
+		nottymode();
+	}
+
 	return (0);
 }

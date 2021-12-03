@@ -37,7 +37,8 @@ char *get_input(void);
 void is_program(char **argv, char *originalinput);
 char **ndsplitter(char fun[], char *delimiter);
 void free_list(char **list);
-
+void ttymode(void);
+void nottymode(void);
 
 
 #endif /* MAIN_H */

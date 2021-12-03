@@ -7,14 +7,17 @@ char * get_input() {
 	char newline[] = {'\n', '\0'};
 
 		buff = malloc(sizeof(char) * 1);
-		check = (getline(&buff, &n, stdin));
 
-		buff = strtok(buff, newline);
+		check = (getline(&buff, &n, stdin));
+		if(buff[0] == '\n' && buff[1] == '\0')
+			;
+		else
+			buff = strtok(buff, newline);
 		if (check == -1)
 		{
 			free(buff);
 			exit(0);
 		}
 
-	return(buff);
+		return(buff);
 }

@@ -1,7 +1,4 @@
-#include <linux/limits.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "main.h"
 
 char *path_cat(char *desty, char *src)
 {
@@ -32,6 +29,5 @@ char *path_cat(char *desty, char *src)
     }
     dest[goback] = '\0';
     retval = strdup(dest);
-    printf("path_cat strdup has address %p\n", retval);
     return (retval);
 }

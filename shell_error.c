@@ -2,5 +2,9 @@
 
 void shell_error(int errorno, char *command)
 {
-        perror(string_build(command, errorno));
+	char *errptr;
+
+	errptr = string_build(command, errorno);
+        perror(errptr);
+	free(errptr);
 }

@@ -19,6 +19,6 @@ char *argtocom(char *arg)
 		free(thispath);
 		i++;
 	}
-
+	free_list(possiblepaths);
 	return (NULL);
 }

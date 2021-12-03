@@ -49,6 +49,11 @@ char **ndsplitter(char fun[], char *delimiter);
 void free_list(char **list);
 void ttymode(void);
 void nottymode(void);
+char *_strcpyfree(char *dest, char *src);
+char * _strcpy(char *stringone, char *stringtwo);
+char *_strdup(char *);
+int _strlen(char *);
+
 
 
 #endif /* MAIN_H */

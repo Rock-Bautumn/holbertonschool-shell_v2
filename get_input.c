@@ -9,15 +9,15 @@ char * get_input() {
 		buff = malloc(sizeof(char) * 1);
 
 		check = (getline(&buff, &n, stdin));
-		if(buff[0] == '\n' && buff[1] == '\0')
-			;
-		else
-			buff = strtok(buff, newline);
 		if (check == -1)
 		{
 			free(buff);
 			exit(0);
 		}
+		if (buff[0] == '\n' && buff[1] == '\0')
+			;
+		else
+			buff = strtok(buff, newline);
 
 		return(buff);
 }

@@ -26,6 +26,11 @@ char *_itoa(unsigned long int value, char *newString)
 
 	return (newString + 11 - i);
 }
+/**
+ * _strcat - concatenate two strings together
+ * @desty: our left part to concatenate
+ * @src: the right part of the concatenation
+ */
 
 char *_strcat(char *desty, char *src)
 {
@@ -50,7 +55,7 @@ char *_strcat(char *desty, char *src)
 	}
 	dest[goback] = '\0';
 
-	retval = dest;
+	retval = strdup(dest);
 	return (retval);
 }
 
@@ -64,23 +69,23 @@ char *string_build(char *command, int errorno)
 	extern unsigned long int loopcount;
 
 	if (loopcount == 0)
-		strcpy(itoahold, "0");
+		_strcpy(itoahold, "0");
 	else
-		strcpy(itoahold, _itoa(loopcount, itoahold));
+		_strcpy(itoahold, _itoa(loopcount, itoahold));
 
 	if (errorno == no_access || errorno == not_found)
 	{
-		strcpy(itoahold, _strcat(itoahold, colon));
-		strcpy(catholder, _strcat(this_shell, itoahold));
-		strcpy(catholder, _strcat(catholder, command));
+		_strcpyfree(itoahold, _strcat(itoahold, colon));
+		_strcpyfree(catholder, _strcat(this_shell, itoahold));
+		_strcpyfree(catholder, _strcat(catholder, command));
 	}
 	else if (errorno == cant_open)
 	{
-		strcpy(catholder, _strcat(this_shell, itoahold));
-		strcpy(catholder, _strcat(catholder, colon));
-		strcpy(catholder, _strcat(catholder, "Can't open "));
-		strcpy(catholder, _strcat(catholder, command));
+		_strcpyfree(catholder, _strcat(this_shell, itoahold));
+		_strcpyfree(catholder, _strcat(catholder, colon));
+		_strcpyfree(catholder, _strcat(catholder, "Can't open "));
+		_strcpyfree(catholder, _strcat(catholder, command));
 	}
-	errptr = catholder;
+	errptr = strdup(catholder);
 	return (errptr);
 }

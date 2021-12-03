@@ -2,7 +2,7 @@
 
 void spawn_process(char *pathandprogram, char **argv)
 {
-
+	extern char **environ;
 	int id;
 	int status;
 
@@ -11,7 +11,7 @@ void spawn_process(char *pathandprogram, char **argv)
 	if (id != 0)
 		wait(&status);
 	if (id == 0)
-		execve(pathandprogram, argv, NULL);
+		execve(pathandprogram, argv, environ);
 	if (id != 0)
 	{
 		fflush(stdout);

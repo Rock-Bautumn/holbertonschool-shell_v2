@@ -1,6 +1,13 @@
 #include "main.h"
 unsigned long int loopcount;
 
+/**
+ * _itoa - converts natural number to ascii string
+ * @value: the number to convert
+ * @newString: where we are saving the new string
+ * Return: the ascii string
+ */
+
 char *_itoa(unsigned long int value, char *newString)
 {
 	int i = 0;

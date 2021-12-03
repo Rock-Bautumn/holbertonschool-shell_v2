@@ -12,7 +12,17 @@
 #include <sys/stat.h>
 #include <limits.h>
 
-enum errornum{no_error, no_access, not_found, no_exist, cant_open};
+/**
+ * enum errornum - maps errors to an integer
+ * @no_error: no error
+ * @no_access: permission denied
+ * @not_found: command or file not found
+ * @no_exist: file or directory doesn't exist
+ * @cant_open: we can't open it
+ */
+
+enum errornum
+{no_error, no_access, not_found, no_exist, cant_open};
 
 int space_count(char *str, char *delimiter);
 char **splitter(char fun[], char *delimiter);
@@ -26,9 +36,9 @@ char *expand_home(char *string);
 char *islocal(char *string);
 int checkforslash(char *command);
 void shell_env(void);
-void shell_exit(char **argv,char *originalinput);
+void shell_exit(char **argv, char *originalinput);
 void shell_error(int errorno, char *command);
-int is_builtin (char **argv, char *originalinput);
+int is_builtin(char **argv, char *originalinput);
 void check_access(char *exepath, char **argv);
 char *argtocom(char *arg);
 void _puts(char *str);
@@ -45,9 +55,9 @@ void nottymode(void);
 
 
 #ifndef PATH_MAX
-#define PATH_MAX = 4096
+#define PATH_MAX 4096
 #endif /* PATH_MAX */
 
 #ifndef NAME_MAX
-#define NAME_MAX = 1024
+#define NAME_MAX 1024
 #endif /* NAME_MAX */

@@ -73,17 +73,25 @@ char *string_build(char *command, int errorno)
 	else
 		_strcpy(itoahold, _itoa(loopcount, itoahold));
 
-	if (errorno == no_access || errorno == not_found)
+	if (errorno == no_access)
 	{
 		_strcpyfree(itoahold, _strcat(itoahold, colon));
 		_strcpyfree(catholder, _strcat(this_shell, itoahold));
 		_strcpyfree(catholder, _strcat(catholder, command));
+		_strcpyfree(catholder, _strcat(catholder, ": Permission denied\n"));
+	}
+	if (errorno == not_found)
+	{
+		_strcpyfree(itoahold, _strcat(itoahold, colon));
+		_strcpyfree(catholder, _strcat(this_shell, itoahold));
+		_strcpyfree(catholder, _strcat(catholder, command));
+		_strcpyfree(catholder, _strcat(catholder, ": not found\n"));
 	}
 	else if (errorno == cant_open)
 	{
 		_strcpyfree(catholder, _strcat(this_shell, itoahold));
 		_strcpyfree(catholder, _strcat(catholder, colon));
-		_strcpyfree(catholder, _strcat(catholder, "Can't open "));
+		_strcpyfree(catholder, _strcat(catholder, "Can't open\n"));
 		_strcpyfree(catholder, _strcat(catholder, command));
 	}
 	errptr = strdup(catholder);

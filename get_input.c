@@ -17,7 +17,13 @@ char * get_input() {
 		if (buff[0] == '\n' && buff[1] == '\0')
 			;
 		else
+		{
 			buff = strtok(buff, newline);
-
+			if ((onlyspaces(buff)))
+			{
+				buff[0] = '\n';
+				buff[1] = '\0';
+			}
+		}
 		return(buff);
 }

@@ -55,6 +55,7 @@ char *_strcpyfree(char *dest, char *src);
 char * _strcpy(char *stringone, char *stringtwo);
 char *_strdup(char *);
 int _strlen(char *);
+int onlyspaces(char *str);
 
 
 

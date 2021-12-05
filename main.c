@@ -1,6 +1,7 @@
 #include "main.h"
 
 unsigned long int loopcount = 0;
+int exit_status = 0;
 
 int main(int ac, char **av)
 {

@@ -2,8 +2,10 @@
 
 void shell_exit(char** argv, char *originalinput)
 {
+	extern int exit_status;
+
 	fflush(NULL);
 	free(originalinput);
 	free(argv);
-	exit(0);
+	exit(exit_status);
 }

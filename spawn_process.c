@@ -2,16 +2,20 @@
 
 void spawn_process(char *pathandprogram, char **argv)
 {
+	extern int exit_status;
 	extern char **environ;
-	int id;
+	pid_t id;
 	int status;
 
 	id = fork();
-
-	if (id != 0)
+	if (id == -1)
+		perror("Fork failed");
+	else if (id > 0)
 		wait(&status);
-	if (id == 0)
+	else if (id == 0)
 		execve(pathandprogram, argv, environ);
+	if((WIFEXITED(status)))
+		exit_status = WEXITSTATUS(status);
 	if (id != 0)
 	{
 		fflush(stdout);

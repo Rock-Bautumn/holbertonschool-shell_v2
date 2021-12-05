@@ -21,7 +21,7 @@ void spawn_process(char *pathandprogram, char **argv)
 		wait(&status);
 	else if (id == 0)
 		execve(pathandprogram, argv, environ);
-	if((WIFEXITED(status)))
+	if ((WIFEXITED(status)))
 		exit_status = WEXITSTATUS(status);
 	if (id != 0)
 	{

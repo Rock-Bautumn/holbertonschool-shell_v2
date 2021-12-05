@@ -63,7 +63,7 @@ char *_strcat(char *desty, char *src)
 /**
  * string_build - Generates error text
  * @command: The command that failed
- * @error_no: The error number of the failure
+ * @errorno: The error number of the failure
  * Return: The created string
  */
 

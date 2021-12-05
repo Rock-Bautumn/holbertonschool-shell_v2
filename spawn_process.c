@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * spawn_process - Forks a child process that is possessed by our argv
+ * @pathandprogram: The filepath of the executable to possess our child
+ * @argv: the argv given to the new process
+ * Return: void
+ */
+
 void spawn_process(char *pathandprogram, char **argv)
 {
 	extern int exit_status;

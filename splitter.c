@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * splitter - A destructive command that makes an array of string pointers
+ *          by using strtok to append a nullbyte where delimiter is found
+ * @fun: the string we are breaking up
+ * @delimiter: the string we are breaking up fun with
+ * Return: A double pointer which is a list of strings split up
+ */
+
 char **splitter(char *fun, char *delimiter)
 {
 	char **holder;

@@ -26,11 +26,3 @@ int space_count(char *str, char *delimiter)
 	}
 	return (count);
 }
-
-int main()
-{
-
-	printf("space count = %d\n", space_count("             ", " "));
-	return (0);
-	
-}

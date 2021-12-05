@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * nottymode - This is the shell mode we run in when there is no tty
+ * Return: void
+ */
+
 void nottymode()
 {
 	char *input;

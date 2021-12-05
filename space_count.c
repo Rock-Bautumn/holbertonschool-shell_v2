@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * space_count - Counts the number of buckets to allocate to store the data
+                 when given a string delimiter of the data
+ * @str: The string to evaluate
+ * @delimiter: The string that is breaking up str
+ * Return: The number of spaces to store the data, trailing NULL excluded
+ */
+
 int space_count(char *str, char *delimiter)
 {
 	int i = 0;

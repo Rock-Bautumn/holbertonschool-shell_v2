@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * path_cat - Concatenates two paths together, adds / between if not found
+ * @desty: The left side of the concatenation
+ * @src: The right side of the concatenation
+ * Return: The string produced
+ */
+
 char *path_cat(char *desty, char *src)
 {
 	int goback = 0;

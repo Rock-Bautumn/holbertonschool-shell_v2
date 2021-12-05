@@ -24,43 +24,42 @@
 enum errornum
 {no_error, no_access, not_found, no_exist, cant_open};
 
-int space_count(char *str, char *delimiter);
-char **splitter(char fun[], char *delimiter);
-char *_getenv(char *str);
-char *path_cat(char *desty, char *src);
-void spawn_process(char *pathandprogram, char **argv);
-char *_itoa(unsigned long int value, char *newString);
-int _putchar(char c);
-int _errorputchar(char c);
-char *string_build(char *command, int errorno);
-char *expand_home(char *string);
-char *islocal(char *string);
-int checkforslash(char *command);
-void shell_env(void);
-void shell_exit(char **argv, char *originalinput);
-void shell_error(int errorno, char *command);
-int is_builtin(char **argv, char *originalinput);
-void check_access(char *exepath, char **argv);
 char *argtocom(char *arg);
-void _puts(char *str);
-void _errorputs(char *str);
-void prompt(void);
+char *expand_home(char *string);
+char *_getenv(char *str);
 char *get_input(void);
-void is_program(char **argv, char *originalinput);
+char *islocal(char *string);
+char *_itoa(unsigned long int value, char *newString);
 char **ndsplitter(char fun[], char *delimiter);
-void free_list(char **list);
-void ttymode(void);
-void nottymode(void);
+char *path_cat(char *desty, char *src);
+char **splitter(char fun[], char *delimiter);
+char *_strcpy(char *stringone, char *stringtwo);
 char *_strcpyfree(char *dest, char *src);
-char * _strcpy(char *stringone, char *stringtwo);
 char *_strdup(char *);
-int _strlen(char *);
+char *string_build(char *command, int errorno);
+
+int checkforslash(char *command);
+int _errorputchar(char c);
+int is_builtin(char **argv, char *originalinput);
 int onlyspaces(char *str);
+int _putchar(char c);
+int space_count(char *str, char *delimiter);
+int _strlen(char *);
 
-
+void check_access(char *exepath, char **argv);
+void _errorputs(char *str);
+void free_list(char **list);
+void is_program(char **argv, char *originalinput);
+void nottymode(void);
+void prompt(void);
+void _puts(char *str);
+void shell_env(void);
+void shell_error(int errorno, char *command);
+void shell_exit(char **argv, char *originalinput);
+void spawn_process(char *pathandprogram, char **argv);
+void ttymode(void);
 
 #endif /* MAIN_H */
-
 
 #ifndef PATH_MAX
 #define PATH_MAX 4096

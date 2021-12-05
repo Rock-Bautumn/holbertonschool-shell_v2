@@ -30,6 +30,7 @@ char *_itoa(unsigned long int value, char *newString)
  * _strcat - concatenate two strings together
  * @desty: our left part to concatenate
  * @src: the right part of the concatenation
+ * Return: the concatenated string
  */
 
 char *_strcat(char *desty, char *src)

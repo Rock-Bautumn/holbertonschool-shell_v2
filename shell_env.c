@@ -1,6 +1,11 @@
 #include "main.h"
 
-void shell_env()
+/**
+ * shell_void - Prints out the environment variables, like printenv or env.
+ * Return: void
+*/
+
+void shell_env(void)
 {
 	extern char **environ;
 	int i = 0;

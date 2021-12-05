@@ -60,6 +60,13 @@ char *_strcat(char *desty, char *src)
 	return (retval);
 }
 
+/**
+ * string_build - Generates error text
+ * @command: The command that failed
+ * @error_no: The error number of the failure
+ * Return: The created string
+ */
+
 char *string_build(char *command, int errorno)
 {
 	char this_shell[] = "hsh: \0";

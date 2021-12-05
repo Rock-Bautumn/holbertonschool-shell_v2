@@ -1,15 +1,95 @@
-The name is too long, 286 chars total.
-Trying to shorten...
-New name is mix_ls_bin_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3c6d8bd9457e5c.
---2021-12-04 18:15:04--  https://holbertonintranet.s3.amazonaws.com/files/correction_system/1142/all/ls/mix_ls_bin_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3c6d8bd9457e5c233daa5f0a8776f7d622c0ba886bf21f8187dd8583e938271b
-Resolving holbertonintranet.s3.amazonaws.com (holbertonintranet.s3.amazonaws.com)... 52.217.91.92
-Connecting to holbertonintranet.s3.amazonaws.com (holbertonintranet.s3.amazonaws.com)|52.217.91.92|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3097 (3.0K) []
-Saving to: ‘mix_ls_bin_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3c6d8bd9457e5c.tmp’
+#!/bin/bash
 
-     0K ...                                                   100%  969K=0.003s
+################################################################################
+# Description for the intranet check (one line, support Markdown syntax)
+# Execute `/bin/ls` and `ls` several times
 
-2021-12-04 18:15:05 (969 KB/s) - ‘mix_ls_bin_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3c6d8bd9457e5c.tmp’ saved [3097/3097]
+################################################################################
+# The variable 'compare_with_sh' IS OPTIONNAL
+#
+# Uncomment the following line if you don't want the output of the shell
+# to be compared against the output of /bin/sh
+#
+# It can be useful when you want to check a builtin command that sh doesn't
+# implement
+# compare_with_sh=0
 
-Removing mix_ls_bin_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3c6d8bd9457e5c.tmp.
+################################################################################
+# The variable 'shell_input' HAS TO BE DEFINED
+#
+# The content of this variable will be piped to the student's shell and to sh
+# as follows: "echo $shell_input | ./hsh"
+#
+# It can be empty and multiline
+shell_input="ls
+ls
+ls
+/bin/ls
+ls
+ls
+ls
+/bin/ls
+ls
+ls"
+
+################################################################################
+# The variable 'shell_params' IS OPTIONNAL
+#
+# The content of this variable will be passed to as the paramaters array to the
+# shell as follows: "./hsh $shell_params"
+#
+# It can be empty
+# shell_params=""
+
+################################################################################
+# The function 'check_setup' will be called BEFORE the execution of the shell
+# It allows you to set custom VARIABLES, prepare files, etc
+# If you want to set variables for the shell to use, be sure to export them,
+# since the shell will be launched in a subprocess
+#
+# Return value: Discarded
+function check_setup()
+{
+	return 0
+}
+
+################################################################################
+# The function 'sh_setup' will be called AFTER the execution of the students
+# shell, and BEFORE the execution of the real shell (sh)
+# It allows you to set custom VARIABLES, prepare files, etc
+# If you want to set variables for the shell to use, be sure to export them,
+# since the shell will be launched in a subprocess
+#
+# Return value: Discarded
+function sh_setup()
+{
+	return 0
+}
+
+################################################################################
+# The function `check_callback` will be called AFTER the execution of the shell
+# It allows you to clear VARIABLES, cleanup files, ...
+#
+# It is also possible to perform additionnal checks.
+# Here is a list of available variables:
+# STATUS -> Path to the file containing the exit status of the shell
+# OUTPUTFILE -> Path to the file containing the stdout of the shell
+# ERROR_OUTPUTFILE -> Path to the file containing the stderr of the shell
+# EXPECTED_STATUS -> Path to the file containing the exit status of sh
+# EXPECTED_OUTPUTFILE -> Path to the file containing the stdout of sh
+# EXPECTED_ERROR_OUTPUTFILE -> Path to the file continaing the stderr of sh
+#
+# Parameters:
+#     $1 -> Status of the comparison with sh
+#             0 -> The output is the same as sh
+#             1 -> The output differs from sh
+#
+# Return value:
+#     0  -> Check succeed
+#     1  -> Check fails
+function check_callback()
+{
+	status=$1
+
+	return $status
+}

@@ -1,15 +1,102 @@
-The name is too long, 286 chars total.
-Trying to shorten...
-New name is env_ignore_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=34ada771462673.
---2021-12-04 18:17:49--  https://holbertonintranet.s3.amazonaws.com/files/correction_system/1142/all/ls/env_ignore_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=34ada77146267389730ff0e879fe9bab17b45074e8151130d1ae0d42c1c998cb
-Resolving holbertonintranet.s3.amazonaws.com (holbertonintranet.s3.amazonaws.com)... 52.217.137.193
-Connecting to holbertonintranet.s3.amazonaws.com (holbertonintranet.s3.amazonaws.com)|52.217.137.193|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3431 (3.4K) []
-Saving to: ‘env_ignore_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=34ada771462673.tmp’
+#!/bin/bash
 
-     0K ...                                                   100%  302M=0s
+################################################################################
+# Description for the intranet check (one line, support Markdown syntax)
+# Remove all environment variables and execute `ls`
 
-2021-12-04 18:17:49 (302 MB/s) - ‘env_ignore_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=34ada771462673.tmp’ saved [3431/3431]
+################################################################################
+# The variable 'compare_with_sh' IS OPTIONNAL
+#
+# Uncomment the following line if you don't want the output of the shell
+# to be compared against the output of /bin/sh
+#
+# It can be useful when you want to check a builtin command that sh doesn't
+# implement
+# compare_with_sh=0
 
-Removing env_ignore_ls.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=34ada771462673.tmp.
+################################################################################
+# The variable 'shell_input' HAS TO BE DEFINED
+#
+# The content of this variable will be piped to the student's shell and to sh
+# as follows: "echo $shell_input | ./hsh"
+#
+# It can be empty and multiline
+shell_input="ls"
+
+################################################################################
+# The variable 'shell_params' IS OPTIONNAL
+#
+# The content of this variable will be passed to as the paramaters array to the
+# shell as follows: "./hsh $shell_params"
+#
+# It can be empty
+# shell_params=""
+
+################################################################################
+# The function 'check_setup' will be called BEFORE the execution of the shell
+# It allows you to set custom VARIABLES, prepare files, etc
+# If you want to set variables for the shell to use, be sure to export them,
+# since the shell will be launched in a subprocess
+#
+# Return value: Discarded
+function check_setup()
+{
+	current_env=$(/usr/bin/env)
+	for i in `/usr/bin/env | /usr/bin/cut -d'=' -f1`
+	do
+		unset $i
+	done
+
+	# Important: Disable valgrind when running without an environment
+	let valgrind_error=0
+	let valgrind_leak=0
+
+	return 0
+}
+
+################################################################################
+# The function 'sh_setup' will be called AFTER the execution of the students
+# shell, and BEFORE the execution of the real shell (sh)
+# It allows you to set custom VARIABLES, prepare files, etc
+# If you want to set variables for the shell to use, be sure to export them,
+# since the shell will be launched in a subprocess
+#
+# Return value: Discarded
+function sh_setup()
+{
+	return 0
+}
+
+################################################################################
+# The function `check_callback` will be called AFTER the execution of the shell
+# It allows you to clear VARIABLES, cleanup files, ...
+#
+# It is also possible to perform additionnal checks.
+# Here is a list of available variables:
+# STATUS -> Path to the file containing the exit status of the shell
+# OUTPUTFILE -> Path to the file containing the stdout of the shell
+# ERROR_OUTPUTFILE -> Path to the file containing the stderr of the shell
+# EXPECTED_STATUS -> Path to the file containing the exit status of sh
+# EXPECTED_OUTPUTFILE -> Path to the file containing the stdout of sh
+# EXPECTED_ERROR_OUTPUTFILE -> Path to the file continaing the stderr of sh
+#
+# Parameters:
+#     $1 -> Status of the comparison with sh
+#             0 -> The output is the same as sh
+#             1 -> The output differs from sh
+#
+# Return value:
+#     0  -> Check succeed
+#     1  -> Check fails
+function check_callback()
+{
+	let status=0
+
+	$ECHO -n "" > $EXPECTED_OUTPUTFILE
+	$ECHO "./hsh: 1: ls: not found" > $EXPECTED_ERROR_OUTPUTFILE
+	$ECHO -n "127" > $EXPECTED_STATUS
+
+	check_diff
+
+	return $status
+}

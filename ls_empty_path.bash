@@ -2,7 +2,7 @@
 
 ################################################################################
 # Description for the intranet check (one line, support Markdown syntax)
-# Set PATH to be an empty string and execute a command that does not exist
+# Set PATH to be an empty string and execute `ls`
 
 ################################################################################
 # The variable 'compare_with_sh' IS OPTIONNAL
@@ -21,7 +21,7 @@
 # as follows: "echo $shell_input | ./hsh"
 #
 # It can be empty and multiline
-shell_input="hbtn_cmd"
+shell_input="ls"
 
 ################################################################################
 # The variable 'shell_params' IS OPTIONNAL

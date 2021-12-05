@@ -1,15 +1,91 @@
-The name is too long, 290 chars total.
-Trying to shorten...
-New name is ls_path_bin_first.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=524ee5e67b.
---2021-12-04 18:17:26--  https://holbertonintranet.s3.amazonaws.com/files/correction_system/1142/all/ls/ls_path_bin_first.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=524ee5e67b95588316ab0f17a16914799ba07406dbc536655acb7b5187b67ee6
-Resolving holbertonintranet.s3.amazonaws.com (holbertonintranet.s3.amazonaws.com)... 52.217.202.9
-Connecting to holbertonintranet.s3.amazonaws.com (holbertonintranet.s3.amazonaws.com)|52.217.202.9|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3216 (3.1K) []
-Saving to: ‘ls_path_bin_first.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=524ee5e67b.tmp’
+#!/bin/bash
 
-     0K ...                                                   100%  981K=0.003s
+################################################################################
+# Description for the intranet check (one line, support Markdown syntax)
+# '/bin' is the first element of PATH, execute `ls`
 
-2021-12-04 18:17:27 (981 KB/s) - ‘ls_path_bin_first.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=524ee5e67b.tmp’ saved [3216/3216]
+################################################################################
+# The variable 'compare_with_sh' IS OPTIONNAL
+#
+# Uncomment the following line if you don't want the output of the shell
+# to be compared against the output of /bin/sh
+#
+# It can be useful when you want to check a builtin command that sh doesn't
+# implement
+# compare_with_sh=0
 
-Removing ls_path_bin_first.bash?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211204T235827Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=524ee5e67b.tmp.
+################################################################################
+# The variable 'shell_input' HAS TO BE DEFINED
+#
+# The content of this variable will be piped to the student's shell and to sh
+# as follows: "echo $shell_input | ./hsh"
+#
+# It can be empty and multiline
+shell_input="ls"
+
+################################################################################
+# The variable 'shell_params' IS OPTIONNAL
+#
+# The content of this variable will be passed to as the paramaters array to the
+# shell as follows: "./hsh $shell_params"
+#
+# It can be empty
+# shell_params=""
+
+################################################################################
+# The function 'check_setup' will be called BEFORE the execution of the shell
+# It allows you to set custom VARIABLES, prepare files, etc
+# If you want to set variables for the shell to use, be sure to export them,
+# since the shell will be launched in a subprocess
+#
+# Return value: Discarded
+function check_setup()
+{
+	OLDPATH="$PATH"
+	export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/games:/usr/local/games"
+
+	return 0
+}
+
+################################################################################
+# The function 'sh_setup' will be called AFTER the execution of the students
+# shell, and BEFORE the execution of the real shell (sh)
+# It allows you to set custom VARIABLES, prepare files, etc
+# If you want to set variables for the shell to use, be sure to export them,
+# since the shell will be launched in a subprocess
+#
+# Return value: Discarded
+function sh_setup()
+{
+	return 0
+}
+
+################################################################################
+# The function `check_callback` will be called AFTER the execution of the shell
+# It allows you to clear VARIABLES, cleanup files, ...
+#
+# It is also possible to perform additionnal checks.
+# Here is a list of available variables:
+# STATUS -> Path to the file containing the exit status of the shell
+# OUTPUTFILE -> Path to the file containing the stdout of the shell
+# ERROR_OUTPUTFILE -> Path to the file containing the stderr of the shell
+# EXPECTED_STATUS -> Path to the file containing the exit status of sh
+# EXPECTED_OUTPUTFILE -> Path to the file containing the stdout of sh
+# EXPECTED_ERROR_OUTPUTFILE -> Path to the file continaing the stderr of sh
+#
+# Parameters:
+#     $1 -> Status of the comparison with sh
+#             0 -> The output is the same as sh
+#             1 -> The output differs from sh
+#
+# Return value:
+#     0  -> Check succeed
+#     1  -> Check fails
+function check_callback()
+{
+	status=$1
+
+	export PATH="$OLDPATH"
+
+	return $status
+}

@@ -61,6 +61,10 @@ void shell_exit(char **argv, char *originalinput);
 void spawn_process(char *pathandprogram, char **argv);
 void ttymode(void);
 
+extern int exit_status;
+extern char **environ;
+extern unsigned long int loopcount;
+
 #endif /* MAIN_H */
 
 #ifndef PATH_MAX

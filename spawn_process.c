@@ -9,8 +9,6 @@
 
 void spawn_process(char *pathandprogram, char **argv)
 {
-	extern int exit_status;
-	extern char **environ;
 	pid_t id;
 	int status;
 

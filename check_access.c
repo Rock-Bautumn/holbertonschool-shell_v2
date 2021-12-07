@@ -9,7 +9,6 @@
 
 void check_access(char *exepath, char **argv)
 {
-	extern int exit_status;
 	char argbuf[PATH_MAX];
 
 	if (exepath)

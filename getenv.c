@@ -8,7 +8,6 @@
 
 char *_getenv(char *str)
 {
-	extern char **environ;
 	int i = 0;
 	int j = 0;
 	char *retval;

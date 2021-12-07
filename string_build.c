@@ -74,7 +74,6 @@ char *string_build(char *command, int errorno)
 	char catholder[PATH_MAX];
 	char *colon = ": ";
 	char *errptr;
-	extern unsigned long int loopcount;
 
 	if (loopcount == 0)
 		_strcpy(itoahold, "0");

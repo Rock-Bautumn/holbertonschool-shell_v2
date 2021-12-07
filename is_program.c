@@ -1,6 +1,6 @@
 #include "main.h"
 
-void is_program (char **argv, char *originalinput)
+void is_program(char **argv, char *originalinput)
 {
 
 	char *path = argv[0];
@@ -16,9 +16,9 @@ void is_program (char **argv, char *originalinput)
 		check_access(localpath, argv);
 		free(localpath);
 	}
-	else if((argpath = argtocom(path)))
+	else if ((argpath = argtocom(path)))
 	{
-        	check_access(argpath, argv);
+		check_access(argpath, argv);
 		free(argpath);
 	}
 	else

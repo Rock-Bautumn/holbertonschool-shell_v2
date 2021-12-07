@@ -1,11 +1,18 @@
 #include "main.h"
 
+/**
+ * check_access - Checks if there is execute access to a file
+ * @exepath: The path to our executable
+ * @argv: The argv for the new process
+ * Return: void
+ */
+
 void check_access(char *exepath, char **argv)
 {
 	extern int exit_status;
 	char argbuf[PATH_MAX];
 
-	if(exepath)
+	if (exepath)
 	{
 		if (access(exepath, X_OK) == -1)
 		{

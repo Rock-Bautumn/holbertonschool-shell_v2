@@ -4,17 +4,22 @@
 .\"man mdoc for the short list of editing options
 .\"/usr/share/misc/mdoc.template
 .Dd 12/2/21               \" DATE
-.Dt simple_shell 1      \"/ Program name and manual section number
+.Dt hsh 1      \"/ Program name and manual section number
 .Os Darwin/
 .Sh NAME                 \" Section Header - required - don't modify
-.Nm simple_shell,
+.Nm hsh,
 .\" The following lines are read in generating the apropos(man -k) database. Use only key
 .\" words here as the database is built based on the words here and in the .ND line.
 .Nd
 .Sh SYNOPSIS             \" Section Header - required - don't modify
-.Nm
+\..\//hsh
+.Pp
+<command_file> <argument> <...>
+
 
 .Sh DESCRIPTION          \" Section Header - required - don't modify
 .Nm
-Takes commands from users via the terminal, or through a piped command.
-.Pp                      \" Inserts a space
+Takes commands from users via the terminal, or through a piped command. It takes that data
+makes it usable and then decides how to try to execute. The desired function is then either executed as a
+shell function, builtin command, or a normal program.
+.Sh

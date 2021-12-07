@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * is_program - Determines what should be done using the input
+ * @argv: - The argv to the child process
+ * @originalinput: The first word sent as input
+ * Return: void
+ */
+
 void is_program(char **argv, char *originalinput)
 {
 

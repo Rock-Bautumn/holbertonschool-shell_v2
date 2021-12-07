@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * argtocom - Searches for a matching executable file inside of the
+ *            directories found inside the PATH environment variable
+ * @arg: The name of the file/command
+ * Return: The matching full path of the command
+ */
+
 char *argtocom(char *arg)
 {
 	char **possiblepaths = ndsplitter(_getenv("PATH"), ":");

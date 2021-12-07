@@ -1,6 +1,12 @@
 #include "main.h"
 
-char * get_input() {
+/**
+ * get_input - Receives input and makes it safe to process
+ * Return: Parsed input from the user
+ */
+
+char *get_input(void)
+{
 	char *buff;
 	size_t n = 1;
 	ssize_t check;
@@ -25,5 +31,5 @@ char * get_input() {
 				buff[1] = '\0';
 			}
 		}
-		return(buff);
+		return (buff);
 }

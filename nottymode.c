@@ -5,7 +5,7 @@
  * Return: void
  */
 
-void nottymode()
+void nottymode(void)
 {
 	char *input;
 	char **argv;

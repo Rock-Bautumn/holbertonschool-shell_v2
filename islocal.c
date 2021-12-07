@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * islocal - Checks if a file exists in the filesystem
+ * @string: The filename
+ * Return: The path of the file, otherwise NULL
+ */
+
 char *islocal(char *string)
 {
 	struct stat st;

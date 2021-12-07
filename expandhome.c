@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * expand_home - Checks for a tilde/~ and expands the path if found
+ * @string: The path to check
+ * Return: The expanded path
+ */
+
 char *expand_home(char *string)
 {
 	int i = 0;

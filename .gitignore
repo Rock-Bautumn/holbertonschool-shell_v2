@@ -2,6 +2,17 @@
 
 *test*
 a.out
-*.c~
 *.example
+hsh
+
+# ignore backup files
+
+*.cold
+*.c~
 \#*\#
+*backup
+
+# ignore any checker/bash files
+*.bash
+allowed_functions
+

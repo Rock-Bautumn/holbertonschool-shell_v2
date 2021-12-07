@@ -38,6 +38,8 @@ char *_strcpyfree(char *dest, char *src);
 char *_strdup(char *);
 char *string_build(char *command, int errorno);
 
+int bool_argtocom(char *arg);
+int bool_islocal(char *string);
 int checkforslash(char *command);
 int _errorputchar(char c);
 int is_builtin(char **argv, char *originalinput);

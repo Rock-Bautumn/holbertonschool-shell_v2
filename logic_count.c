@@ -1,5 +1,4 @@
 #include "main.h"
-#include <assert.h>
 
 size_t logic_count(char *argv)
 {
@@ -69,30 +68,18 @@ void iterate_llist(logic_t **clist)
 {
 	size_t i;
 	int xs;
-	char ct, ot;
+	char ct;
 
 	printf("iterate llist:\n");
 	for (i = 0; clist[i]; i++)
 	{
 		printf("type: %c ", clist[i]->type + '0');
 		printf("statement: %s\n", clist[i]->statement);
-		printf("first char: %c\n", clist[i]->statement[0]);
 		xs = exit_status;
 		ct = clist[i]->type;
-		if ((xs == 0 && ct == 1) || (xs != 0 && ct == 2))
+		if ((xs == 0 && ct == 1) || (xs != 0 && ct == 2) || (i == 0))
 		{
-			ot = clist[i]->statement[0];
-			if (ot >= '0' && ot <= '9')
-			{
-				printf("FALSE\n");
-				exit_status = 1;
-			}
-			else
-			{
-				printf("true\n");
-				exit_status = 0;
-			}
-			/* delete up to ot = clist when implementing the actual functionality */
+			execstring(clist[i]->statement);
 			/* pipes_from_str(clist[i]->statement); */
 		}
 	}

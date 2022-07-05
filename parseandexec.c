@@ -8,8 +8,5 @@
 
 void parseandexec(char *input)
 {
-	char **argv;
-	argv = splitter(input, " ");
-	is_program(argv, input);
-	free(argv);
+	clists_from_str(input);
 }

@@ -63,7 +63,9 @@ int space_count(char *str, char *delimiter);
 int _strlen(char *);
 
 void check_access(char *exepath, char **argv);
+void clists_from_str(char *input);
 void _errorputs(char *str);
+void execstring(char *cmdstr);
 void free_list(char **list);
 void free_llist(logic_t **llist);
 void is_program(char **argv, char *originalinput);

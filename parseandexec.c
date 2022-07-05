@@ -2,14 +2,14 @@
 
 /**
  * parseandexec - Parse the given string and execute it
- * @cmdstr: A string that is the input line given to the shell
+ * @input: A string that is the input line given to the shell
  * Return: void
  */
 
-void parseandexec(char *cmdstr)
+void parseandexec(char *input)
 {
 	char **argv;
-	argv = splitter(cmdstr, " ");
-	is_program(argv, cmdstr);
+	argv = splitter(input, " ");
+	is_program(argv, input);
 	free(argv);
 }

@@ -71,7 +71,7 @@ void iterate_llist(logic_t **clist)
 	int xs;
 	char ct, ot;
 
-	printf("print_llist:\n");
+	printf("iterate llist:\n");
 	for (i = 0; clist[i]; i++)
 	{
 		printf("type: %c ", clist[i]->type + '0');

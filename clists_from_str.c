@@ -1,7 +1,38 @@
 #include "main.h"
 #include <assert.h>
 
+void clists_from_str(char *input)
+{
+	char **clist;
+
+	clist = ndsplitter(input, ";");
+	iterate_clist(clist);
+	free_list(clist);
+
+}
+
 /*
+
+void print_list(char **list)
+{
+	size_t i;
+	printf("print_list:\n");
+	for (i = 0; list[i]; i++)
+	{
+		printf("%s\n", list[i]);
+	}
+}
+
+int exit_status = 0;
+
+int main()
+{
+	char *input;
+
+	input = get_input();
+	clists_from_str(input);
+	return (exit_status);
+}
 
 size_t clist_count(char *argv)
 {
@@ -57,46 +88,5 @@ char **fill_clist(char *argv)
 	holder[hi] = NULL;
 	return (holder);
 }
+
 */
-
-void iterate_clist(char **clist)
-{
-	size_t i;
-	printf("iterate list:\n");
-	for (i = 0; clist[i]; i++)
-	{
-		printf("clist [%lu]: %s\n", i, clist[i]);
-		logic_from_str(clist[i]);
-	}
-}
-
-void print_list(char **list)
-{
-	size_t i;
-	printf("print_list:\n");
-	for (i = 0; list[i]; i++)
-	{
-		printf("%s\n", list[i]);
-	}
-}
-
-void clists_from_str(char *input)
-{
-	char **clist;
-
-	clist = ndsplitter(input, ";");
-	iterate_clist(clist);
-	free_list(clist);
-
-}
-
-int exit_status = 0;
-
-int main()
-{
-	char *input;
-
-	input = get_input();
-	clists_from_str(input);
-	return (exit_status);
-}

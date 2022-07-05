@@ -8,14 +8,11 @@
 void nottymode(void)
 {
 	char *input;
-	char **argv;
 
 	while ((input = get_input()))
 	{
 		prompt();
-		argv = splitter(input, " ");
-		is_program(argv, input);
-		free(argv);
+		parseandexec(input);
 		free(input);
 		fflush(NULL);
 	}

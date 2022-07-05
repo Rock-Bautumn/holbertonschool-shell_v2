@@ -33,6 +33,7 @@ void is_program(char **argv, char *originalinput)
 	else
 	{
 		free(argpath);
+		exit_status = 127;
 		shell_error(not_found, path);
 	}
 }

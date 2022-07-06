@@ -6,6 +6,11 @@
 
 #define ALLOC_BYTES 32
 
+/**
+ * main - malloc and write ALLOC_BYTES worth of memory
+ * Return: 0 if success
+*/
+
 int main(void)
 {
 	int *array;

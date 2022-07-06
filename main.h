@@ -62,6 +62,10 @@ int _putchar(char c);
 int space_count(char *str, char *delimiter);
 int _strlen(char *);
 
+logic_t **fill_llist(char *argv);
+
+size_t logic_count(char *argv);
+
 void check_access(char *exepath, char **argv);
 void clists_from_str(char *input);
 void _errorputs(char *str);
@@ -70,6 +74,7 @@ void free_list(char **list);
 void free_llist(logic_t **llist);
 void is_program(char **argv, char *originalinput);
 void iterate_clist(char **clist);
+void iterate_llist(logic_t **clist);
 void logic_from_str(char *input);
 void nottymode(void);
 void parseandexec(char *input);

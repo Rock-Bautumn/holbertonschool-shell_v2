@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * iterate_pipes - create all of the pipes and spawn the processes
+ * @plist: The list of statements between pipes
+ * Return: 0 if success
+*/
 void iterate_pipes(char **plist)
 {
 	size_t i;
@@ -10,7 +14,11 @@ void iterate_pipes(char **plist)
 		/* logic_from_str(plist[i]); */
 	}
 }
-
+/**
+ * print_list - print a list of strings
+ * @list: The list of strings
+ * Return: 0 if success
+*/
 void print_list(char **list)
 {
 	size_t i;
@@ -21,6 +29,12 @@ void print_list(char **list)
 	}
 }
 
+/**
+ * pipes_from_str - Parse and pipe the processes in the line
+ * @input: The list of statements with pipes
+ * Return: 0 if success
+*/
+
 void pipes_from_str(char *input)
 {
 	char **plist;
@@ -30,7 +44,10 @@ void pipes_from_str(char *input)
 	free_list(plist);
 
 }
-
+/**
+ * main - test the functionality of the pipes_from_str func
+ * Return: 0 if success
+*/
 int main()
 {
 	char *input;

@@ -1,0 +1,25 @@
+/*
+void print_list(char **list)
+{
+	size_t i;
+	printf("print_list:\n");
+	for (i = 0; list[i]; i++)
+	{
+		printf("%s\n", list[i]);
+	}
+}
+*/
+
+/*
+int exit_status = 0;
+
+int main()
+{
+	char *input;
+
+	input = get_input();
+	logic_from_str(input);
+	free(input);
+	return (0);
+}
+*/

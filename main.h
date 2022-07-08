@@ -13,6 +13,7 @@
 #include <limits.h>
 #include <assert.h>
 
+
 /**
  * enum errornum - maps errors to an integer
  * @no_error: no error
@@ -75,9 +76,12 @@ void free_llist(logic_t **llist);
 void is_program(char **argv, char *originalinput);
 void iterate_clist(char **clist);
 void iterate_llist(logic_t **clist);
+void iterate_plist(char **plist);
 void logic_from_str(char *input);
 void nottymode(void);
+void onepiper(char *cmd1, char *cmd2);
 void parseandexec(char *input);
+void pipes_from_str(char *);
 void prompt(void);
 void _puts(char *str);
 void shell_env(void);

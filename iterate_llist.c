@@ -19,8 +19,8 @@ void iterate_llist(logic_t **clist)
 
 		if ((xs == XS && ct == 1) || (xs != XS && ct == 2) || (i == 0))
 		{
-			execstring(clist[i]->statement);
-			/* pipes_from_str(clist[i]->statement); */
+			/* execstring(clist[i]->statement); */
+			pipes_from_str(clist[i]->statement);
 		}
 	}
 }

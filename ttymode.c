@@ -15,6 +15,7 @@ void ttymode(void)
 		input = get_input();
 		parseandexec(input);
 		free(input);
+		parse_crumb_reset();
 		fflush(NULL);
 	}
 }

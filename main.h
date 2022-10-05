@@ -131,6 +131,7 @@ void logic_from_str(char *input);
 void nottymode(void);
 void onepiper(char *cmd1, char *cmd2);
 void parseandexec(char *input);
+void parse_crumb_reset(void);
 void pipes_from_str(char *);
 void prompt(void);
 void _puts(char *str);

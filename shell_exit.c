@@ -9,9 +9,17 @@
 
 void shell_exit(char **argv, char *originalinput)
 {
-
+	printf("shell exit?\n");
 	fflush(NULL);
-	free(originalinput);
+	/* free(originalinput); */
+	(void) originalinput;
 	free(argv);
+	printf("freeing the crumbs\n");
+		fflush(NULL);
+
+	free_parse_crumbs();
+	/* freeEnvList(&envList); */
+	printf("Goodbye from shell_exit()!\n");
+	fflush(NULL);
 	exit(exit_status);
 }

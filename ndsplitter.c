@@ -17,11 +17,14 @@ char **ndsplitter(char *fun, char *delimiter)
 	char *grabtok;
 
 	copyoffun = strdup(fun);
-/*strtok must take an array of chars not a pointer*/
+	/*strtok must take an array of chars not a pointer*/
 	holder = malloc(sizeof(char *) * (length + 1));
-/*strtok has to be split to the same var so create temp*/
+	printf("ndsplitter holder is %p\n", (void *) holder);
+	/*strtok has to be split to the same var so create temp*/
 	temp = strdup(strtok(copyoffun, delimiter));
-	holder[i] = temp;
+	printf("ndsplitter strdup first fill malloc at %p\n", (void *) temp);
+	holder[0] = temp;
+	printf("and it contains %s\n", temp);
 	while (temp != NULL)
 	{
 		i++;
@@ -32,6 +35,8 @@ char **ndsplitter(char *fun, char *delimiter)
 			break;
 		}
 		temp = strdup(grabtok);
+		printf("ndsplitter temp at %p\n", (void *) temp);
+		printf("filling with %s\n", temp);
 		holder[i] = temp;
 	}
 	free(copyoffun);

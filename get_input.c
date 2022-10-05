@@ -12,24 +12,25 @@ char *get_input(void)
 	ssize_t check;
 	char newline[] = {'\n', '\0'};
 
-		buff = malloc(sizeof(char) * 1);
+	buff = malloc(sizeof(char) * 1);
 
-		check = (getline(&buff, &n, stdin));
-		if (check == -1)
+	check = (getline(&buff, &n, stdin));
+	if (check == -1)
+	{
+		free(buff);
+		exit(0);
+	}
+	if (buff[0] == '\n' && buff[1] == '\0')
+		;
+	else
+	{
+		buff = strtok(buff, newline);
+		if ((onlyspaces(buff)))
 		{
-			free(buff);
-			exit(0);
+			buff[0] = '\n';
+			buff[1] = '\0';
 		}
-		if (buff[0] == '\n' && buff[1] == '\0')
-			;
-		else
-		{
-			buff = strtok(buff, newline);
-			if ((onlyspaces(buff)))
-			{
-				buff[0] = '\n';
-				buff[1] = '\0';
-			}
-		}
-		return (buff);
+	}
+	parse_crumb(oneaddr, buff);
+	return (buff);
 }

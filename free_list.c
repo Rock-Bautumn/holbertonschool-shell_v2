@@ -18,10 +18,10 @@ void free_list(char **list)
 	while (i)
 	{
 		i--;
-		printf("Free list address bye %p\n", (void *) &list[i]);
+		/* printf("Free list address bye %p\n", (void *) &list[i]); */
 		free(list[i]);
 	}
-	printf("free list last address bye at %p\n", (void *) list);
+	/* printf("free list last address bye at %p\n", (void *) list); */
 	free(list);
 
 }

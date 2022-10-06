@@ -14,7 +14,7 @@ void pipes_from_str(char *input)
 	parse_crumb(opflist, plist);
 	printf("plist is at %p\n", (void *) plist);
 	iterate_plist(plist);
-	free_list(plist);
-	printf("freeing plist at %p\n", (void *) plist);
+	/* free_list(plist);
+	printf("freeing plist at %p\n", (void *) plist); */
 	
 }

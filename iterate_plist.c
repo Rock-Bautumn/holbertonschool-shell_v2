@@ -13,6 +13,7 @@ void iterate_plist(char **plist)
 	char itoahold[12];
 
 	for (i = 0; plist[i]; i++);
+
 	if (i == 1)
 		execstring(plist[0]);
 	else if (i == 2)

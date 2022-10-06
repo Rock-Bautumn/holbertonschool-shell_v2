@@ -8,9 +8,10 @@
 
 void execstring(char *cmdstr)
 {
+	/* WE CAN SPLIT PLIST ITEM DATA HERE BUT WE CANNOT FREE IT */
 	char **argv;
 
 	argv = splitter(cmdstr, " ");
-	is_program(argv, cmdstr);
+	is_program(argv);
 	free(argv);
 }

@@ -7,14 +7,14 @@
  * Return: void
  */
 
-void is_program(char **argv, char *originalinput)
+void is_program(char **argv)
 {
 
 	char *path = argv[0];
 	char *localpath = NULL;
 	char *argpath = NULL;
 
-	if (is_builtin(argv, originalinput) == 1)
+	if (is_builtin(argv) == 1)
 		;
 	else if (path[0] == '\n' && path[1] == '\0')
 		;
@@ -32,7 +32,6 @@ void is_program(char **argv, char *originalinput)
 	}
 	else
 	{
-		free(argpath);
 		exit_status = 127;
 		shell_error(not_found, path);
 	}

@@ -17,7 +17,4 @@ void clists_from_str(char *input)
 	parse_crumb(opflist, clist);
 	printf("ndsplitter for clist is %p\n", (void *) clist);
 	iterate_clist(clist);
-	free_list(clist);
-	printf("freeing clist address %p\n", (void *) clist);
-
 }

@@ -7,16 +7,14 @@
  * Return: void
  */
 
-void shell_exit(char **argv, char *originalinput)
+void shell_exit(void)
 {
 	printf("shell exit?\n");
 	fflush(NULL);
-	/* free(originalinput); */
-	(void) originalinput;
-	free(argv);
+	/* free(argv); */
 	printf("freeing the crumbs\n");
 		fflush(NULL);
-
+	print_crumbs();
 	free_parse_crumbs();
 	/* freeEnvList(&envList); */
 	printf("Goodbye from shell_exit()!\n");

@@ -13,13 +13,14 @@ void free_parse_crumbs(void)
 		printf("next node is %p\n", (void *) this_node->next);
 
 		free_node = this_node;
-		this_node = this_node->next;
 		if (free_node->operation == opflist)
 			free_list(free_node->free_addr);
 		else if (free_node->operation == opllist)
 			free_llist(free_node->free_addr);
 		else if (free_node->operation == oneaddr)
 			free(free_node->free_addr);
+		this_node = this_node->next;
 		free(free_node);
+
 	}
 }

@@ -7,11 +7,12 @@
  * Return: 1 if it is a shell function, 0 if not
  */
 
-int is_builtin(char **argv, char *originalinput)
+int is_builtin(char **argv)
 {
 	if (strcmp(argv[0], "exit") == 0)
 	{
-		shell_exit(argv, originalinput);
+		free(argv);
+		shell_exit();
 		return (1);
 	}
 	if (strcmp(argv[0], "env") == 0)

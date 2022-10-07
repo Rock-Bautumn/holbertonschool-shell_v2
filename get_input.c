@@ -18,7 +18,7 @@ char *get_input(void)
 	if (check == -1)
 	{
 		free(buff);
-		exit(0);
+		exit(exit_status);
 	}
 	if (buff[0] == '\n' && buff[1] == '\0')
 		;

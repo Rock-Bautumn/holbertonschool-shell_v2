@@ -16,4 +16,5 @@ void nottymode(void)
 		free_parse_crumbs();
 		fflush(NULL);
 	}
+
 }

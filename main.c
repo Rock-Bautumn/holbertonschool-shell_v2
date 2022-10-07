@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 unsigned long int loopcount = 0;
 int exit_status = 0;
 env_t *envList;
@@ -18,7 +17,7 @@ int main(int ac, char **av, char **env)
 {
 	if (ac > 1)
 		shell_error(cant_open, av[1]);
-	(void) env;
+	(void)env;
 	/* shell_init(env); */
 	/* interactive mode */
 	if (isatty(STDIN_FILENO) == 1)
@@ -27,5 +26,9 @@ int main(int ac, char **av, char **env)
 	else
 		nottymode();
 
-	return (0);
+	printf("quitting with exit status %d\n", exit_status);
+
+	fflush(NULL);
+	exit(exit_status);
+	return (exit_status);
 }

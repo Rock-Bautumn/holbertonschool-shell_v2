@@ -11,6 +11,7 @@ void shell_error(int errorno, char *command)
 {
 	char *errptr;
 
+	/* printf("encountered error, exit_status = %d\n", exit_status); */
 	errptr = string_build(command, errorno);
 	_errorputs(errptr);
 	free(errptr);

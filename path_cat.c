@@ -35,6 +35,6 @@ char *path_cat(char *desty, char *src)
 		goback++;
 	}
 	dest[goback] = '\0';
-	retval = strdup(dest);
+	retval = _strdup(dest);
 	return (retval);
 }

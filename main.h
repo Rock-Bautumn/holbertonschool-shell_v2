@@ -94,6 +94,7 @@ char **splitter(char fun[], char *delimiter);
 char *_strcpy(char *stringone, char *stringtwo);
 char *_strcpyfree(char *dest, char *src);
 char *_strdup(char *);
+char *_strndup(char *str, int n);
 char *string_build(char *command, int errorno);
 
 

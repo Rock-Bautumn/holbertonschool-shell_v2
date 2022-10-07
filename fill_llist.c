@@ -29,7 +29,7 @@ logic_t **fill_llist(char *argv)
 				last_type = 2;
 			else
 				last_type = 1;
-			temp->statement = strndup(&argv[start], i - start);
+			temp->statement = _strndup(&argv[start], i - start);
 			holder[hi] = temp;
 			assert(holder[hi]);
 			hi++;

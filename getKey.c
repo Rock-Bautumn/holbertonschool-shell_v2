@@ -9,6 +9,6 @@ char *getKey(char *str)
 	{
 		i++;
 	}
-	retVal = strndup(str, i);
+	retVal = _strndup(str, i);
 	return retVal;
 }

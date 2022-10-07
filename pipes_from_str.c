@@ -12,7 +12,7 @@ void pipes_from_str(char *input)
 
 	plist = ndsplitter(input, "|");
 	parse_crumb(opflist, plist);
-	printf("plist is at %p\n", (void *) plist);
+	/* printf("plist is at %p\n", (void *) plist); */
 	iterate_plist(plist);
 	/* free_list(plist);
 	printf("freeing plist at %p\n", (void *) plist); */

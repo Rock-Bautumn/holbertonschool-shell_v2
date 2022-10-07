@@ -14,14 +14,13 @@ parse_crumb_t parse_crumb(int operation, void *address)
 	new_node->next = NULL;
 	new_node->operation = operation;
 
-	printf("inside parse_crumb() line 17\n");
 	if (crumbList == NULL)
 	{
 		crumbList = new_node;
 		return (*new_node);
 	}
 	this_node = crumbList;
-	while (this_node->next != NULL)
+	while (this_node != NULL && this_node->next != NULL)
 	{
 		this_node = this_node->next;
 	}

@@ -8,9 +8,9 @@ void free_parse_crumbs(void)
 	while (this_node != NULL)
 	{
 
-		printf("free parse crumbs - this node\n");
+		/* printf("free parse crumbs - this node\n");
 		printf("the op is %d and the free addr is %p\n", this_node->operation, this_node->free_addr);
-		printf("next node is %p\n", (void *) this_node->next);
+		printf("next node is %p\n", (void *) this_node->next); */
 
 		free_node = this_node;
 		if (free_node->operation == opflist)
@@ -23,4 +23,5 @@ void free_parse_crumbs(void)
 		free(free_node);
 
 	}
+	crumbList = NULL;
 }

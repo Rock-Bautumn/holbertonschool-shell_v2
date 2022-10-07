@@ -24,7 +24,7 @@ char **ndsplitter(char *fun, char *delimiter)
 	temp = strdup(strtok(copyoffun, delimiter));
 	/* printf("ndsplitter strdup first fill malloc at %p\n", (void *) temp); */
 	holder[0] = temp;
-	printf("and it contains %s\n", temp);
+	/* printf("and it contains %s\n", temp); */
 	while (temp != NULL)
 	{
 		i++;

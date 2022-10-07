@@ -10,7 +10,7 @@ void logic_from_str(char *input)
 	logic_t **llist;
 
 	llist = fill_llist(input);
-	printf("llist address is %p\n", (void *) llist);
+	/* printf("llist address is %p\n", (void *) llist); */
 	parse_crumb(opllist, llist);
 	iterate_llist(llist);
 }

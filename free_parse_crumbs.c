@@ -1,5 +1,9 @@
 #include "main.h"
 
+/**
+ * free_parse_crumbs - Frees all of the data stored in crumbList
+ * Return: void
+*/
 void free_parse_crumbs(void)
 {
 	parse_crumb_t *this_node = crumbList;
@@ -7,11 +11,6 @@ void free_parse_crumbs(void)
 
 	while (this_node != NULL)
 	{
-
-		/* printf("free parse crumbs - this node\n");
-		printf("the op is %d and the free addr is %p\n", this_node->operation, this_node->free_addr);
-		printf("next node is %p\n", (void *) this_node->next); */
-
 		free_node = this_node;
 		if (free_node->operation == opflist)
 			free_list(free_node->free_addr);

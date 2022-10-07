@@ -35,8 +35,10 @@ char **ndsplitter(char *fun, char *delimiter)
 			break;
 		}
 		temp = _strdup(grabtok);
-		/* printf("ndsplitter temp at %p\n", (void *) temp);
-		printf("filling with %s\n", temp); */
+		/*
+		* printf("ndsplitter temp at %p\n", (void *) temp);
+		* printf("filling with %s\n", temp);
+		*/
 		holder[i] = temp;
 	}
 	free(copyoffun);

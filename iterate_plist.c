@@ -12,7 +12,8 @@ void iterate_plist(char **plist)
 	size_t i;
 	char itoahold[12];
 
-	for (i = 0; plist[i]; i++);
+	for (i = 0; plist[i]; i++)
+		;
 
 	if (i == 1)
 		execstring(plist[0]);

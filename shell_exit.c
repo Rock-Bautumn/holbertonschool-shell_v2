@@ -2,8 +2,6 @@
 
 /**
  * shell_exit - Exits the shell
- * @argv: the new argv built for the child process
- * @originalinput: what was originally sent
  * Return: void
  */
 

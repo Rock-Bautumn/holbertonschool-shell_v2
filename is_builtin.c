@@ -3,7 +3,6 @@
 /**
  * is_builtin - Checks to see if a function is actually a shell function
  * @argv: - The argv created for the child process
- * @originalinput: The first word of what the user typed/sent
  * Return: 1 if it is a shell function, 0 if not
  */
 

@@ -10,6 +10,7 @@ parse_crumb_t *crumbList = NULL;
  *        ttymode (interactive mode) or nottymode (non-interactive mode)
  * @ac: The number of arguments passed to our shell
  * @av: The arguments passed to our shell
+ * @env: The environment passed to our shell
  * Return: The exit status
  */
 
@@ -26,7 +27,6 @@ int main(int ac, char **av, char **env)
 	else
 		nottymode();
 
-	printf("quitting with exit status %d\n", exit_status);
 
 	fflush(NULL);
 	exit(exit_status);

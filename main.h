@@ -65,11 +65,10 @@ typedef struct env_s
 } env_t;
 
 /**
- * struct parsed_crumb_s - A doubly linked list to hold the addresses that
- * have been used in mallocs so we can free 100% on exit
- * @next: The next node in the linked list
- * @prev: The previous node in the linked list
- * @addr: The address of the malloc that is to be freed
+ * struct parse_crumb_s - A node that stores the address and method to free
+ * @free_addr: The address to free
+ * @operation: The enum of the operation needed to free the item
+ * @next: The next node in the list
 */
 
 typedef struct parse_crumb_s
@@ -77,7 +76,6 @@ typedef struct parse_crumb_s
 	struct parse_crumb_s *next;
 	void *free_addr;
 	int operation;
-
 } parse_crumb_t;
 
 char *argtocom(char *arg);

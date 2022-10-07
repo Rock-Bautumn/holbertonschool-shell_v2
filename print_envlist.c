@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * print_envlist - prints the contents of the virtual environment
+ * @h: The head of the environment list
+ * Return: the number of items in the list
+*/
 size_t print_envlist(const env_t *h)
 {
 	size_t i = 0;

@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * parse_crumb - Add a node to the parse crumb list so it can be freed later
+ * @operation: The enum for the type of free operation must
+ *             done on that address
+ * @address: The address to be freed later
+ * Return: void
+*/
 
 parse_crumb_t parse_crumb(int operation, void *address)
 {

@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * freeEnvList - Free the virtual environment
+ * @head: The head node of the list
+ * Return: void
+*/
+
 void freeEnvList(env_t **head)
 {
 	env_t *thisNode = *head;

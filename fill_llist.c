@@ -40,7 +40,7 @@ logic_t **fill_llist(char *argv)
 	if (hi < length)
 	{
 		temp = malloc(sizeof(logic_t));
-		temp->statement = strdup(&argv[start]);
+		temp->statement = _strdup(&argv[start]);
 		temp->type = last_type;
 		holder[hi] = temp;
 		hi++;

@@ -48,7 +48,7 @@ char **fill_clist(char *argv)
 	}
 	if (hi < length)
 	{
-		holder[hi] = strdup(&argv[start]);
+		holder[hi] = _strdup(&argv[start]);
 		hi++;
 	}
 	holder[hi] = NULL;

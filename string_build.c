@@ -56,7 +56,7 @@ char *_strcat(char *desty, char *src)
 	}
 	dest[goback] = '\0';
 
-	retval = strdup(dest);
+	retval = _strdup(dest);
 	return (retval);
 }
 
@@ -101,6 +101,6 @@ char *string_build(char *command, int errorno)
 		_strcpyfree(catholder, _strcat(catholder, "Can't open\n"));
 		_strcpyfree(catholder, _strcat(catholder, command));
 	}
-	errptr = strdup(catholder);
+	errptr = _strdup(catholder);
 	return (errptr);
 }

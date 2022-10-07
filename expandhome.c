@@ -15,7 +15,7 @@ char *expand_home(char *string)
 
 	if (string[0] == '~')
 	{
-		strcpy(buffer, _getenv("HOME"));
+		_strcpy(buffer, _getenv("HOME"));
 		while (buffer[offset])
 			offset++;
 		i++;

@@ -16,14 +16,14 @@ char *_getenv(char *str)
 	while (environ[i])
 	{
 		j = 0;
-		strcpy(copyenv, environ[i]);
+		_strcpy(copyenv, environ[i]);
 		while (copyenv[j] != '\0' && copyenv[j] != '=')
 		{
 			j++;
 		}
 		copyenv[j] = '\0';
 		j++;
-		if (strcmp(copyenv, str) == 0)
+		if (_strcmp(copyenv, str) == 0)
 		{
 			retval = &environ[i][j];
 			return (retval);

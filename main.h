@@ -96,6 +96,7 @@ char *_strcpyfree(char *dest, char *src);
 char *_strdup(char *);
 char *string_build(char *command, int errorno);
 
+
 env_t *add_env_t_end(env_t **head, char *envItem);
 
 int bool_argtocom(char *arg);
@@ -106,7 +107,9 @@ int is_builtin(char **argv);
 int onlyspaces(char *str);
 int _putchar(char c);
 int space_count(char *str, char *delimiter);
+int _strcmp(char *s1, char *s2);
 int _strlen(char *);
+
 
 logic_t **fill_llist(char *argv);
 

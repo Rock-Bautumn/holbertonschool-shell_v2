@@ -9,13 +9,13 @@
 
 int is_builtin(char **argv)
 {
-	if (strcmp(argv[0], "exit") == 0)
+	if (_strcmp(argv[0], "exit") == 0)
 	{
 		free(argv);
 		shell_exit();
 		return (1);
 	}
-	if (strcmp(argv[0], "env") == 0)
+	if (_strcmp(argv[0], "env") == 0)
 	{
 		shell_env();
 		return (1);

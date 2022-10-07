@@ -9,6 +9,6 @@ char *getValue(char *str)
 	{
 		i++;
 	}
-	retVal = strdup(&str[i+1]);
+	retVal = _strdup(&str[i+1]);
 	return retVal;
 }

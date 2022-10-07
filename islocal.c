@@ -18,7 +18,7 @@ char *islocal(char *string)
 		return (NULL);
 	}
 	homestr = expand_home(string);
-	strcpy(bufptr, homestr);
+	_strcpy(bufptr, homestr);
 	free(homestr);
 
 	if (stat(bufptr, &st) == 0)

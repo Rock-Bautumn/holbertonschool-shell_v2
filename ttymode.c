@@ -14,9 +14,7 @@ void ttymode(void)
 		prompt();
 		input = get_input();
 		parseandexec(input);
-		/* free(input); */
 		free_parse_crumbs();
-		/* parse_crumb_reset(); */
 		fflush(NULL);
 	}
 }

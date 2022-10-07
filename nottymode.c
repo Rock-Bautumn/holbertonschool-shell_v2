@@ -13,7 +13,7 @@ void nottymode(void)
 	{
 		prompt();
 		parseandexec(input);
-		free(input);
+		free_parse_crumbs();
 		fflush(NULL);
 	}
-}
+

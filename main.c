@@ -2,7 +2,7 @@
 
 unsigned long int loopcount = 0;
 int exit_status = 0;
-env_t *envList;
+env_t *envList = NULL;
 parse_crumb_t *crumbList = NULL;
 
 /**
@@ -27,8 +27,6 @@ int main(int ac, char **av, char **env)
 	else
 		nottymode();
 
-
 	fflush(NULL);
-	exit(exit_status);
 	return (exit_status);
 }

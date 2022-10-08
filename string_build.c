@@ -69,7 +69,7 @@ char *_strcat(char *desty, char *src)
 
 char *string_build(char *command, int errorno)
 {
-	char this_shell[] = "hsh: \0";
+	char this_shell[] = "./hsh: \0";
 	char itoahold[12];
 	char catholder[PATH_MAX];
 	char *colon = ": ";

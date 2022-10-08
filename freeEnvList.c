@@ -2,13 +2,12 @@
 
 /**
  * freeEnvList - Free the virtual environment
- * @head: The head node of the list
  * Return: void
 */
 
-void freeEnvList(env_t **head)
+void freeEnvList(void)
 {
-	env_t *thisNode = *head;
+	env_t *thisNode = envList;
 	env_t *nextNode;
 
 	while (thisNode != NULL)

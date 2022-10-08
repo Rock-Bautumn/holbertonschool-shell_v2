@@ -78,6 +78,8 @@ typedef struct parse_crumb_s
 	int operation;
 } parse_crumb_t;
 
+char set_exit_status(int new_status, char *given_status);
+
 char *argtocom(char *arg);
 char *expand_home(char *string);
 char *_getenv(char *str);
@@ -98,11 +100,14 @@ char *string_build(char *command, int errorno);
 
 env_t *add_env_t_end(env_t **head, char *envItem);
 
+int _atoi(char *s);
+int _atoi2(char *string);
 int bool_argtocom(char *arg);
 int bool_islocal(char *string);
 int checkforslash(char *command);
 int _errorputchar(char c);
 int is_builtin(char **argv);
+int is_pos_ascii_num(char *str);
 int onlyspaces(char *str);
 int _putchar(char c);
 int space_count(char *str, char *delimiter);
@@ -121,7 +126,7 @@ void check_access(char *exepath, char **argv);
 void clists_from_str(char *input);
 void _errorputs(char *str);
 void execstring(char *cmdstr);
-void freeEnvList(env_t **head);
+void freeEnvList(void);
 void free_list(char **list);
 void free_llist(logic_t **llist);
 void free_parse_crumbs(void);
@@ -141,7 +146,7 @@ void _puts(char *str);
 void shell_init(char **env);
 void shell_env(void);
 void shell_error(int errorno, char *command);
-void shell_exit(void);
+void shell_exit(char **argv);
 void spawn_process(char *pathandprogram, char **argv);
 void ttymode(void);
 

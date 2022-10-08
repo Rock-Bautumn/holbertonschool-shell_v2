@@ -15,7 +15,6 @@ int is_pos_ascii_num(char *str)
 	{
 		if (str[i] < '0' || str[i] > '9')
 		{
-			printf("%c is invalid\n", str[i]);
 			return (0);
 		}
 		i++;
